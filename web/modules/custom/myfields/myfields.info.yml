@@ -1,0 +1,5 @@
+name: "My Fields"
+type: module
+core_version_requirement: ^10
+description: "This is a custom module for field API"
+package: "Module Dev"
