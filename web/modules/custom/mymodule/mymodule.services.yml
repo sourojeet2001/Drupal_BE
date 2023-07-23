@@ -1,0 +1,3 @@
+services:
+  mymodule.currentUserCustom:
+    class: Drupal\mymodule\CurrentUserCustom
