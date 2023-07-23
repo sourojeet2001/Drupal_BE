@@ -1,0 +1,19 @@
+uuid: 9e52ac1e-0876-4ada-a175-f121a6df9f86
+langcode: en
+status: true
+dependencies:
+  module:
+    - myfields
+    - node
+id: node.field_m
+field_name: field_m
+entity_type: node
+type: rgb_field
+settings: {  }
+module: myfields
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

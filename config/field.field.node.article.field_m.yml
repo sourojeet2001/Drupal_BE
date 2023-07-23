@@ -1,0 +1,21 @@
+uuid: e580b8fe-cda2-459c-b8b4-b20ceb70365c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_m
+    - node.type.article
+  module:
+    - myfields
+id: node.article.field_m
+field_name: field_m
+entity_type: node
+bundle: article
+label: 'My Mod Custom Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: rgb_field
