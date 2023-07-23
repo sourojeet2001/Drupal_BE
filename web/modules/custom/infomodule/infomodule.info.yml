@@ -1,0 +1,8 @@
+name: "First Module"
+type: module
+core_version_requirement: ^10
+description: "This is my first module"
+package: "Module Dev"
+# Adding dependency of paragraphs module.
+dependencies:
+  -paragraphs:paragraphs
