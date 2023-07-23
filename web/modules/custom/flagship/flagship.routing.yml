@@ -1,0 +1,16 @@
+flagship.custompage:
+  path: "/custom-welcome-page"
+  defaults:
+    _controller: '\Drupal\flagship\Controller\BlockController::customPage'
+    _title: "Block View"
+  requirements:
+    _permission: "block view"
+    # _role: 'administrator + content_editor'
+
+flagship.flagform:
+  path: '/admin/config/flagshipblockform'
+  defaults:
+    _form: '\Drupal\flagship\Form\BlockForm'
+    _title: 'Block Form Demo'
+  requirements:
+    _permission: 'access custompage'

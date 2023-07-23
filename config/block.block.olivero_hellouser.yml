@@ -1,0 +1,25 @@
+uuid: 0ebe924e-f29d-44a0-9a48-6842bb63ff49
+langcode: en
+status: true
+dependencies:
+  module:
+    - flagship
+    - system
+  theme:
+    - olivero
+id: olivero_hellouser
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'hello user'
+settings:
+  id: 'hello user'
+  label: 'Hello User'
+  label_display: visible
+  provider: flagship
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /custom-welcome-page

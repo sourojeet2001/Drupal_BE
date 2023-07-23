@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * This file demonstartes how to use hook functions.
+ */
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ */
+function flagship_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+  if ($form_id == 'user_login_form') {
+    $form['#submit'][] = 'flagship_user_login_submit';
+  }
+}
+
+/**
+ * This function is used to redirect the user to the specific route on
+ * successful login.
+ */
+function flagship_user_login_submit(&$form, FormStateInterface $form_state) {
+  $url = Url::fromRoute('flagship.custompage');
+  $form_state->setRedirectUrl($url);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function flagship_theme() {
+  return [
+    'block-form' => [
+      'variables' => [
+        'data' => NULL,
+        'form' => NULL,
+      ],
+    ],
+  ];
+
+}
