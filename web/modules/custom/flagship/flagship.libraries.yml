@@ -1,0 +1,7 @@
+form_style:
+  version: 1.0
+  css:
+    theme:
+      css/style.css: {}
+  dependencies:
+    - core/drupalSettings

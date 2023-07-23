@@ -1,0 +1,25 @@
+uuid: c6aa7478-edef-4f6d-95e9-9dd245f2aeec
+langcode: en
+status: true
+dependencies:
+  module:
+    - flagship
+    - system
+  theme:
+    - olivero
+id: olivero_customtwigform
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'custom twig form'
+settings:
+  id: 'custom twig form'
+  label: 'Custom Twig Form'
+  label_display: visible
+  provider: flagship
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /custom-welcome-page

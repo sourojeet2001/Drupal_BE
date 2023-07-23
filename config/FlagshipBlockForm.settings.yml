@@ -1,0 +1,18 @@
+_core:
+  default_config_hash: bbGF___MIRzv1JaKfEiOwiiPiC8Z-0_oRTym_-xK0ok
+name: 'Sourojeet Paul'
+label1: Innoraft
+count: 2001
+data:
+  1:
+    name: Sourojeet
+    label1: Paul
+    count: '2001'
+    remove: Remove
+  2:
+    name: Babai
+    label1: Paul
+    count: '2000'
+    remove: Remove
+  actions:
+    add: Add
