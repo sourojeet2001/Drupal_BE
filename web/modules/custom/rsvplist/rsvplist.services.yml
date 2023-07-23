@@ -1,0 +1,6 @@
+services:
+  rsvplist.emailValidator:
+    class: Drupal\rsvplist\EmailValidator
+
+  rsvplist.customMessenger:
+    class: Drupal\rsvplist\CustomMessenger

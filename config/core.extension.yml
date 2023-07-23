@@ -39,6 +39,7 @@ module:
   page_cache: 0
   path: 0
   path_alias: 0
+  rsvplist: 0
   search: 0
   shortcut: 0
   standard: 0
@@ -47,6 +48,7 @@ module:
   text: 0
   toolbar: 0
   tour: 0
+  update: 0
   user: 0
   views_ui: 0
   views: 10
