@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * @file
+ * Provides a my movie entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\mymovie\Entity\MyMovie;
+use Drupal\mymovie\Event\BudgetEvent;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function mymovie_theme()
+{
+  return [
+    'my_movie' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for my movie templates.
+ *
+ * Default template: my-movie.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the my movie information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_my_movie(array &$variables)
+{
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function mymovie_user_cancel($edit, UserInterface $account, $method)
+{
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish my movies.
+      $storage = \Drupal::entityTypeManager()->getStorage('my_movie');
+      $my_movie_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($my_movie_ids) as $my_movie) {
+        $my_movie->set('status', FALSE);
+        $my_movie->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize my movies.
+      $storage = \Drupal::entityTypeManager()->getStorage('my_movie');
+      $my_movie_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($my_movie_ids) as $my_movie) {
+        $my_movie->setOwnerId(0);
+        $my_movie->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function mymovie_user_predelete(UserInterface $account)
+{
+  // Delete my movies.
+  $storage = \Drupal::entityTypeManager()->getStorage('my_movie');
+  $my_movie_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $my_movies = $storage->loadMultiple($my_movie_ids);
+  $storage->delete($my_movies);
+  // Delete old revisions.
+  $my_movie_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($my_movie_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function mymovie_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->getType() === 'movie') {
+    $budget = \Drupal::config('BudgetForm.settings')->get('budget');
+    $movie_price = $node->get('price')->value;
+    // Compare the movie price with the budget-friendly amount.
+    if ($movie_price < $budget) {
+      $budget_friendly_text = t('The movie is under budget');
+    } 
+    else if ($movie_price > $budget) {
+      $budget_friendly_text = t('The movie is over budget');
+    }
+    else {
+      $budget_friendly_text = t('The movie is within budget');
+    }
+    // Add the budget-friendly text to the node's rendered output.
+    $variables['title_prefix'] =   $budget_friendly_text ;
+    $variables['attributes'] = [
+      'style' => ['font-size:30px'],
+    ];
+  }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function mymovie_toolbar_alter(&$items) {
+  $items['administration']['#attached']['library'][] = 'mymovie/toolbar-icon';
+}
+

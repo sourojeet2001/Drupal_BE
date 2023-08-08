@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+id: movie_award
+label: 'Movie Award'
+mapping:
+  year:
+    type: integer
+    label: 'Year'
+  movie_node:
+    type: entity_reference
+    label: 'Movie Node'
+    constraints:
+      entityType: node
+      bundle: movie

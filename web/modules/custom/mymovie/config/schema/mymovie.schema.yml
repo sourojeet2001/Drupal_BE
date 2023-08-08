@@ -1,0 +1,22 @@
+mymovie.movie_award.*:
+  type: config_entity
+  label: Movie Award
+  mapping:
+    id:
+      type: string
+      label: ID
+    label:
+      type: label
+      label: Label
+    uuid:
+      type: string
+    description:
+      type: string
+    year:
+      type: integer
+    movie_node:
+      type: entity_reference
+      label: 'Movie Node'
+      constraints:
+        entityType: node
+        bundle: movie

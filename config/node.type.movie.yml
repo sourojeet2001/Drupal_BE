@@ -1,0 +1,16 @@
+uuid: 18f78aaa-74aa-44ac-b26c-449172e1a8f4
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - mymovie
+_core:
+  default_config_hash: 331Tf1gBNkf2ot6JEY_3ydB5YTFTPH9XfT0TrWR-GHw
+name: Movies
+type: movie
+description: 'Content type that can be used to provide additional information on <em>Movies</em>'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
