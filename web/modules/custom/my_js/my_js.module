@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for My JS module.
+ */
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function my_js_preprocess_node(&$variables) {
+  // Attaching js to a specific type of node.
+  if ($variables['node']->bundle() === 'movie' && $variables['node']->id() == 16) {
+    $variables['#attached']['library'][] = 'my_js/specific';
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function my_js_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'my_js/telformatter';
+}
