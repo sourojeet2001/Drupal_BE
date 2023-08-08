@@ -1,0 +1,5 @@
+name: 'My JS'
+type: module
+description: 'Custom module for testing javascript API.'
+package: Custom
+core_version_requirement: ^10

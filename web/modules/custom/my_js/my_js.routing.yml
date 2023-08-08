@@ -1,0 +1,7 @@
+my_js.teleform:
+  path: '/teleform'
+  defaults:
+    _form: '\Drupal\my_js\Form\JsForm'
+    _title: 'Tele Form Demo'
+  requirements:
+    _permission: 'access content'

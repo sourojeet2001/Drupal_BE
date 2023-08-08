@@ -33,6 +33,7 @@ module:
   link: 0
   menu_link_content: 0
   menu_ui: 0
+  my_js: 0
   mysql: 0
   node: 0
   options: 0
@@ -47,6 +48,7 @@ module:
   text: 0
   toolbar: 0
   tour: 0
+  update: 0
   user: 0
   views_ui: 0
   views: 10

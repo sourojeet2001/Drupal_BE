@@ -1,0 +1,16 @@
+specific:
+  version: 1.x
+  js:
+    js/specific.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+telformatter:
+  version: 1.x
+  js:
+    js/tele.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
