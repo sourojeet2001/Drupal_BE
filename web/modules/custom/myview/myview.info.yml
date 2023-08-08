@@ -1,0 +1,5 @@
+name: 'MyView'
+type: module
+description: 'Test module for custom alteration of views.'
+package: Custom
+core_version_requirement: ^10
