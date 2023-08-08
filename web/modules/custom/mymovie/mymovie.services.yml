@@ -1,0 +1,13 @@
+services:
+  budget_event_subscriber:
+    class: '\Drupal\mymovie\EventSubscriber\BudgetEventSubscriber'
+    arguments: ['@current_route_match', '@messenger', '@config.factory']
+    tags:
+      - { name: 'event_subscriber' }
+
+  uninstall_validator:
+    class: Drupal\mymovie\MyMovieUninstallValidator
+    tags:
+      - { name: module_install.uninstall_validator }
+    arguments: ['@entity_type.manager', '@string_translation']
+    lazy: true

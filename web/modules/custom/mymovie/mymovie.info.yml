@@ -1,0 +1,7 @@
+name: "My Movie"
+type: module
+core_version_requirement: ^10
+description: "This is a custom module for Entity API to store movie details"
+package: "Module Dev"
+libraries:
+  - mymovie/toolbar-icon
