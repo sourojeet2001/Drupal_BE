@@ -1,0 +1,41 @@
+# core.entity_form_display.node.movie.default.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.field.node.movie.body
+        - field.field.node.movie.price
+        - node.type.movie
+        - image.style.wide
+    module:
+        - text
+        - user
+        - image
+id: node.movie.default
+targetEntityType: node
+bundle: movie
+mode: default
+content:
+    body:
+        label: hidden
+        type: text_textarea_with_summary
+        weight: 101
+        settings: {  }
+        third_party_settings: {  }
+    price: 
+        label: hidden
+        type: number
+        weight: 102 
+        settings: {  }
+        third_party_settings: {  }
+    movie_image:
+      type: image_image
+      weight: 1
+      region: content
+      settings:
+        progress_indicator: throbber
+        preview_image_style: thumbnail
+      third_party_settings: {  }
+    links:
+        weight: 100
+hidden: {  }

@@ -1,0 +1,48 @@
+entity.my_movie.settings:
+  path: 'admin/structure/my-movie'
+  defaults:
+    _form: '\Drupal\mymovie\Form\MyMovieSettingsForm'
+    _title: 'My Movie'
+  requirements:
+    _permission: 'administer my movie'
+
+entity.movie_award.collection:
+  path: '/admin/structure/movie-award'
+  defaults:
+    _entity_list: 'movie_award'
+    _title: 'Movie Award configuration'
+  requirements:
+    _permission: 'administer movie_award'
+
+entity.movie_award.add_form:
+  path: '/admin/structure/movie_award/add'
+  defaults:
+    _entity_form: 'movie_award.add'
+    _title: 'Add a movie award'
+  requirements:
+    _permission: 'administer movie_award'
+
+entity.movie_award.edit_form:
+  path: '/admin/structure/movie-award/{movie_award}'
+  defaults:
+    _entity_form: 'movie_award.edit'
+    _title: 'Edit a movie award'
+  requirements:
+    _permission: 'administer movie_award'
+
+entity.movie_award.delete_form:
+  path: '/admin/structure/movie-award/{movie_award}/delete'
+  defaults:
+    _entity_form: 'movie_award.delete'
+    _title: 'Delete a movie award'
+  requirements:
+    _permission: 'administer movie_award'
+
+config.budget:
+  path: '/admin/config/config-budget'
+  defaults:
+    _form: '\Drupal\mymovie\Form\BudgetForm'
+    _title: 'Budget Form Demo'
+  requirements:
+    # _permission: 'administer budget'
+    _role: administrator + content_editor

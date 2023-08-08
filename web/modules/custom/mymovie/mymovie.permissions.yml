@@ -1,0 +1,17 @@
+administer my movie:
+  title: 'Administer my movie settings'
+  restrict access: true
+delete my movie:
+  title: Delete my movie
+create my movie:
+  title: Create my movie
+view my movie:
+  title: View my movie
+edit my movie:
+  title: Edit my movie
+
+administer movie_award:
+  title: 'Administer movie award'
+
+administer budget:
+  title: 'Administer budget'

@@ -1,0 +1,31 @@
+entity.my_movie.settings:
+  title: 'My Movie'
+  description: 'Configure a My Movie entity type.'
+  route_name:  entity.my_movie.settings
+  parent: system.admin_structure
+entity.my_movie.collection:
+  title: 'My Movies'
+  description: 'List of my movies.'
+  route_name: entity.my_movie.collection
+  parent: system.admin_content
+
+entity.movie_award.overview:
+  title: Movie Awards
+  parent: system.admin_structure
+  description: 'List of movie awards to extend site functionality.'
+  route_name: entity.movie_award.collection
+
+mymovie.addAward:
+  title: "Add Award"
+  description: "Add movie award"
+  route_name: entity.movie_award.add_form
+  weight: 11
+  menu_name: main
+
+mymovie.addBudget:
+  title: "Add Budget"
+  description: "Add movie budget"
+  parent: system.admin
+  route_name: config.budget
+  weight: 6
+

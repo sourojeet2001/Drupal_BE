@@ -1,0 +1,50 @@
+uuid: 8e4cfbff-6c11-4cc1-9bfa-8ae2e3337ae6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.movie.body
+    - field.field.node.movie.movie_image
+    - field.field.node.movie.price
+    - image.style.wide
+    - node.type.movie
+  module:
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: qBtEPLuO0vU-QCttyI40IFAWKj-YX_CeHB11-dmK7N8
+id: node.movie.default
+targetEntityType: node
+bundle: movie
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+  movie_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: wide
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  price:
+    label: hidden
+    type: number_decimal
+    weight: 102
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,20 @@
+# field.field.node.movie.price.yml
+langcode: en
+status: true
+dependencies:
+    config:
+        - field.storage.node.field_price
+        - node.type.movie
+id: node.movie.price
+field_name: price
+entity_type: node
+bundle: movie
+label: Price
+description: 'Price info of movie'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+    display_summary: true
+field_type: decimal
