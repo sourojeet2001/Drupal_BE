@@ -1,0 +1,25 @@
+a.toolbar-icon.toolbar-icon-mymovie-addbudget::before{
+  background: url('../images/images.png');
+  position: absolute;
+  top: 0;
+  left: 0.6667em;
+  display: block;
+  width: 1.25rem;
+  height: 100%;
+  content: "";
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: 100% auto;
+}
+a.toolbar-icon.toolbar-icon-mymovie-addbudget.is-active::before{
+  filter: brightness(50%);
+}
+a.toolbar-icon.toolbar-icon-mymovie-addbudget:active::before{
+filter: invert(1);
+}
+
+
+
+
