@@ -1,0 +1,40 @@
+uuid: 1098f32c-92f7-4326-9b6e-abd0fb2b698e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.movie_image
+    - node.type.movie
+  module:
+    - image
+_core:
+  default_config_hash: MwhPp54txkhCeCPRTeIkWPTz54eIzVaSK4c79wmldYQ
+id: node.movie.movie_image
+field_name: movie_image
+entity_type: node
+bundle: movie
+label: Image
+description: 'Poster of the movie'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: mymovie/images
+  max_filesize: 10MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: true
+  title_field_required: false
+  file_extensions: 'png gif jpg jpeg'
+  default_image:
+    uuid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

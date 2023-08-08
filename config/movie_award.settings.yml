@@ -1,0 +1,17 @@
+_core:
+  default_config_hash: YaKR2I2XLtS9kukJaSKkHHBJcVtu2AA00GEBmLXC7QY
+langcode: en
+status: true
+dependencies: null
+id: movie_award
+label: 'Movie Award'
+mapping:
+  year:
+    type: integer
+    label: Year
+  movie_node:
+    type: entity_reference
+    label: 'Movie Node'
+    constraints:
+      entityType: node
+      bundle: movie

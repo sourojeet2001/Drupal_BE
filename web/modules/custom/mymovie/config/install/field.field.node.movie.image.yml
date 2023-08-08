@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movie_image
+    - node.type.movie
+id: node.movie.image
+field_name: movie_image
+entity_type: node
+bundle: movie
+label: 'Image'
+description: 'Poster of the movie'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'mymovie/images'
+  max_filesize: '10MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: true
+  title_field_required: false
+field_type: image

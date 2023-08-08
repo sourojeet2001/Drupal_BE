@@ -1,0 +1,14 @@
+# node.type.movie.yml
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - mymovie 
+name: 'Movies'
+type: movie
+description: 'Content type that can be used to provide additional information on <em>Movies</em>'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true
