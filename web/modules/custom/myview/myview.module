@@ -1,0 +1,47 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function myview_views_pre_render(ViewExecutable $view) {
+  // Check if this is the view and display the manipulate view.
+  if ('my_custom_view' == $view->id() && 'page_1' == $view->getDisplay()->display['id']) {
+    // Just reversing result order.
+    $view->result = array_reverse($view->result);
+    $view->setTitle("Sourojeet's View");
+  }
+
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function myview_views_data_alter(&$data) {
+  // Adding custom relationship.
+  $data['node_field_data']['dummy'] = [
+    'title' => t('Custom Author'),
+    'help' => t('Relate article to its author.'),
+    'relationship' => [
+      'base' => 'users_field_data',
+      'base field' => 'uid',
+      'field' => 'uid',
+      'id' => 'standard',
+      'handler' => 'views_handler_relationship',
+      'label' => t('Custom Author'),
+    ],
+  ];
+  // Adding custom field based on the relationship.
+  $data['users_field_data']['name'] = [
+    'title' => t('Content Author Name'),
+    'field' => [
+      'id' => 'standard',
+      'relationship' => [
+        'id' => 'dummy',
+        'base' => 'node_field_data',
+        'base field' => 'uid',
+      ],
+    ],
+  ];
+}
